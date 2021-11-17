@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record model="ir.ui.view" id="hn_account_journal_inherit_view">
+        <field name="name">hn.account.journal.inherit.view</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='type']" position="after">
+                <field name="debit_note_sale" attrs="{'invisible': [('type','!=', 'sale')]}"/>
+                <field name="debit_note_purchase" attrs="{'invisible': [('type','!=', 'purchase')]}"/>
+            </xpath>
+        </field>
+    </record>
+</data>
+</odoo>
